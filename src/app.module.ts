@@ -10,7 +10,7 @@ import { ConfigModule } from '@nestjs/config';
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    MongooseModule.forRoot(`mongodb+srv://gonzalo:${process.env.MONGODB_PWD}@cluster0.loxsizg.mongodb.net/ServiciosWeb/?retryWrites=true&w=majority`),
+    MongooseModule.forRoot(`mongodb+srv://gonzalo:${process.env.MONGODB_PWD}@cluster0.loxsizg.mongodb.net/?retryWrites=true&w=majority`),
     UsersModule, AuthModule, ComentsModule],
   controllers: [AppController],
   providers: [AppService],
