@@ -120,7 +120,7 @@ export class UsersService {
 
     //Update User
     async updateUser(form: any, id: string): Promise<any> {
-        console.log(form)
+
         const { email, telefono, nombre, apellidos, descripcion, localidad } = form;
 
         await this.userModel.updateOne({ _id: id }, {
