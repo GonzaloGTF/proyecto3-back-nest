@@ -5,9 +5,12 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ComentsModule } from './coments/coments.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [MongooseModule.forRoot("mongodb://127.0.0.1:27017/ServiciosWeb"),
+  imports: [
+    ConfigModule.forRoot(),
+    MongooseModule.forRoot(`mongodb+srv://gonzalo:${process.env.MONGODB_PWD}@cluster0.loxsizg.mongodb.net/?retryWrites=true&w=majority`),
     UsersModule, AuthModule, ComentsModule],
   controllers: [AppController],
   providers: [AppService],
