@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
 import { ComentsService } from './coments.service';
 
 @Controller('coments')
@@ -16,5 +16,8 @@ export class ComentsController {
         return await this.comentService.getComments()
     }
 
-
+    @Delete()
+    async deleteComment(@Body("id") id: string): Promise<any> {
+        await this.comentService.deleteComment(id)
+    }
 }

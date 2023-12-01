@@ -115,4 +115,25 @@ export class UsersService {
             );
         }
     }
+
+
+
+    //Update User
+    async updateUser(form: any, id: string): Promise<any> {
+        console.log(form)
+        const { email, telefono, nombre, apellidos, descripcion, localidad } = form;
+
+        await this.userModel.updateOne({ _id: id }, {
+            $set: {
+                email: email,
+                telefono: telefono,
+                nombre: nombre,
+                apellidos: apellidos,
+                descripcion: descripcion,
+                localidad: localidad
+            }
+        })
+
+        return await this.userModel.findOne({ _id: id });
+    }
 }

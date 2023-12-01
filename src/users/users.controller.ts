@@ -51,4 +51,13 @@ export class UsersController {
     async selectEmploy(@Body() body: any): Promise<any> {
         return await this.usersService.selectEmploy(body)
     }
+
+
+    //Update user
+    @UseGuards(JwtAuthGuard)
+    @Put('update')
+    async updateUser(@Body() body: any): Promise<any> {
+        const { form, id } = body
+        return await this.usersService.updateUser(form, id)
+    }
 }

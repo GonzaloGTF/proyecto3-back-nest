@@ -29,7 +29,6 @@ export class AuthService {
 
     //generar token
     async login(user: any) {
-        console.log(user)
         const payload = { username: user.email, id: user._id, roles: user.roles }
 
         return {
